@@ -1,0 +1,10 @@
+<button onclick="showHideRoles('hide_roles_div')">Show roles</button>
+<div id="hide_roles_div" style='display: none'>
+<%= form_for(:role_ids, url: '/roles/hide_roles') do |f| %>
+<%@roles.each do |role|%>
+  <%= f.label role[:role_name] %>:
+	<%=f.check_box role[:id] %>
+<% end %>
+<%= f.submit "Hide roles" %>
+<% end %>
+</div>

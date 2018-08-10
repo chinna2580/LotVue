@@ -1,0 +1,9 @@
+<%= form_for(:role, url: '/roles/create') do |f| %>
+
+  <%= f.label :role_name %>:
+  <%= f.text_field :role_name %><br />
+
+  <%= f.submit %>
+<% end %>
+<a href="/roles/index">show all roles</a>
+<a href="/users/new">create users</a>

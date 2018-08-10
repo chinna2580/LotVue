@@ -1,0 +1,26 @@
+<%= form_for(:user, url: '/users/create') do |f| %>
+
+  <%= f.label :first_name %>:
+  <%= f.text_field :first_name %><br />
+  <%= f.label :last_name %>:
+  <%= f.text_field :last_name %><br />
+  <%= f.label :email %>:
+  <%= f.text_field :email %><br />
+  <%= f.select :role_ids, options_for_select(@roles.collect {|p| [ p.role_name, p.id ] }), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;" } %>
+  <button onclick="addAddressField()" type="button">Add More</button>
+
+    <br />Addresses:
+        <ul>
+            <%= f.fields_for :addresses do |addresses_form| %>
+                <li>
+                <%= addresses_form.label :kind %>
+                <%= addresses_form.text_field :kind %>
+
+                <%= addresses_form.label :street %>
+                <%= addresses_form.text_field :street %>
+                </li>
+            <% end %>
+        </ul>
+  <%= f.submit %>
+<% end %>
+<a href="/users/index">show all users</a>

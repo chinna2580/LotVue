@@ -1,0 +1,12 @@
+More fields:
+<ul>
+    <%= f.fields_for :meta_fields do |meta_field| %>
+        <li>
+        <%= meta_field.label :name %>
+        <%= meta_field.text_field :name %>
+
+        <%= meta_field.label :value %>
+        <%= meta_field.text_field :value %>
+        </li>
+    <% end %>
+</ul>
